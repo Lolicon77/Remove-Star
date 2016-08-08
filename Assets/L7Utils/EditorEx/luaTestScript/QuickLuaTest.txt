@@ -1,0 +1,46 @@
+luanet.load_assembly('UnityEngine')
+luanet.load_assembly('Assembly-CSharp')
+
+GameObject = luanet.import_type('UnityEngine.GameObject')
+-- Vector3 = luanet.import_type('UnityEngine.Vector3')
+-- ParticleSystem = luanet.import_type('UnityEngine.ParticleSystem')
+-- GameModeCampaignCamera = luanet.import_type('Game.GameModeCampaignCamera')
+-- CharacterSkill = luanet.import_type('Game.CharacterSkill')
+-- Time = luanet.import_type('UnityEngine.Time')
+
+CharacterState = luanet.import_type('Game.CharacterState')
+-- Time.timeScale = 4
+
+
+-- function CoFunc()
+--     print('Coroutine started')
+--     local i = 0
+--     for i = 0, 10, 1 do
+--         -- print(fib(i))                    
+--         coroutine.wait(1)
+--     end
+--     print('Coroutine ended')
+-- end
+
+-- function myFunc()
+--     coroutine.wait(5)
+-- end
+
+-- local newGameObj = GameObject('NewObj')
+-- newGameObj:AddComponent(luanet.ctype(GameModeCampaignCamera))
+-- local move = newGameObj:GetComponent(luanet.ctype(Move))
+
+-- GameModeCampaignCamera.Ins:SmoothMoveToWorldPosition(Vector3(0,0,0),0.5)
+-- GameModeCampaignCamera.Ins:EnableFollowGroup()
+-- print(GameModeCampaignCamera.Ins.transform.position)
+
+-- local xuanwu = GameObject.Find("玄武")
+-- local fuxi = GameObject.Find("伏羲")
+-- print(xuanwu)
+-- local xuanwuCom = xuanwu:GetComponent(luanet.ctype(CharacterSkill))
+-- xuanwuCom:UseSkill(0,fuxi.transform.position,false,nil,nil)
+
+local changjinglong = GameObject.Find("changjinglong (1)")
+print(changjinglong)
+local state = changjinglong:GetComponent(luanet.ctype(CharacterState))
+state.animator:CrossFade("idle01",0.5)
