@@ -43,6 +43,13 @@ namespace UnityEngine {
 		//		Debug.Log(mono.gameObject.name +"   " + text);
 		//	}
 
+		public static T GetOrAddComponent<T>(this MonoBehaviour mono) where T : Component {
+			T component;
+			if ((component = mono.GetComponent<T>()) == null) {
+				component = mono.gameObject.AddComponent<T>();
+			}
+			return component;
+		}
 
 	}
 }
